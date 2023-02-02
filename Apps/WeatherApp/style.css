@@ -1,0 +1,14 @@
+body {
+    background-color: #6610f2;
+}
+
+#loader {	
+	display: none;
+	/*background: red center center;*/
+	width: auto;
+	height: 20vh;
+	 background: url('image/spinner.gif') no-repeat center center;
+	/* position: fixed; */
+	/* z-index: 100%; */
+	
+}

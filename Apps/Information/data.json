@@ -1,0 +1,33 @@
+ {
+    "information": 
+    [
+        {
+            "fullName": "Tchaptche Morel",
+            "dateOfBirth": "23/03/2001",
+            "age": 12,
+            "residence": "Odza",
+            "gender": "Male",
+            "proffession": "Student",
+            "email": "mtchaptche@gmail.com"
+        },
+        {
+            "fullName": "Burks Rosella",
+            "dateOfBirth": "23/04/1679",
+            "age": 32,
+            "residence": "New York",
+            "gender": "Male",
+            "proffession": "Professor",
+            "email": "brosella@gmail.com"
+        },
+
+        {
+            "fullName": "Avila Damien",
+            "dateOfBirth": "13/10/1999",
+            "age": 19,
+            "residence": "torronto",
+            "gender": "Female",
+            "proffession": "Curator",
+            "email": "avilad@gmail.com"
+        }
+    ]
+ }

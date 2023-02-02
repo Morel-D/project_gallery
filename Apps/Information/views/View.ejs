@@ -1,0 +1,117 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+
+    <!-- header -->
+    <%- include('./partials/header.ejs'); %>
+
+    <title>View Records</title>
+</head>
+<body>
+    
+    <div class="container my-4 ">
+        <div class="card m-5 p-4 col-10">
+            <div class="row">
+                <div class="col text-start">
+                    <h3 class="text-secondary"> <a href="/"><i class="bi bi-caret-left text-secondary"></i></a> Personal Information</h3>
+                </div>
+
+                <div class="col text-end">
+                    <div class="btn-group">
+                        <a class="" type="button" id="triggerId" data-toggle="dropdown">
+                            <i class="bi bi-three-dots-vertical" id="dots"></i>            
+                        </a>
+                        <div class="dropdown-menu dropdown-menu-right" aria-labelledby="triggerId">
+                            <a class="dropdown-item text-warning" href="/Record/Edit/<%= info._id %>">Edit <i class="bi bi-eye"></i></a>
+                            <a class="dropdown-item text-danger" type="button" data-toggle="modal" data-target="#modelId2" href="#">Delete <i class="bi bi-trash"></i></a>
+                            <button type="button" class="dropdown-item text-primary" onclick="window.print()">Print <i class="bi bi-printer"></i></button>                
+                        </div>
+                    </div>
+                </div>
+            </div>
+          
+            <hr>
+            <div class="row">
+                <div class="col mx-2 text-center">
+                    <img src="../public/Images/user.png" id="image"><br>
+                    <label class="lead my-3 text-center">
+                        <%= info.fullName %> <br>
+                    <b id="prof"><%= info.proffession %></b>
+                    </label>
+                </div>
+
+                <div class="col col-8">
+
+                    <div class="row">
+                        <div class="col">
+                            <b class="text-secondary"><i class="bi bi-person-badge"></i> Matricule</b><br>
+                            <label>IN2387</label>
+                        </div>
+
+                        <div class="col">
+                            <b class="text-secondary"><i class="bi bi-person"></i> Age</b><br>
+                            <label><%= info.age %></label>
+                        </div>
+                    </div>
+
+
+                    <div class="row">
+                        <div class="col">
+                            <b class="text-secondary"><i class="bi bi-calendar2-check"></i> Date Of Birth</b><br>
+                            <label><%= info.dateOfBirth %></label>
+                        </div>
+
+                        <div class="col">
+                            <b class="text-secondary"><i class="bi bi-geo-alt"></i> Residence</b><br>
+                            <label><%= info.residence %></label>
+                        </div>
+                    </div>
+
+
+                    <div class="row">
+                        <div class="col">
+                            <b class="text-secondary">
+                                <i class="bi bi-gender-female"></i>
+                                <!-- <i class="bi bi-gender-male"></i>  -->
+                                Gender
+                            </b><br>
+                            <label><%= info.gender %></label>
+                        </div>
+
+                        <div class="col">
+                            <b class="text-secondary"><i class="bi bi-envelope"></i> Email</b><br>
+                            <label><%= info.email %></label>
+                        </div>
+                    </div>
+                    <hr>
+                    <small><b>About Me</b></small>
+                    <br>
+                    Lorem ipsum dolor sit amet consectetur adipisicing elit.
+                    Minus laudantium quos illo fugiat, omnis accusantium similique
+                </div>
+            </div>
+        </div>
+    </div>
+
+    
+    <%- include('./partials/deleteModal.ejs');  %>
+
+
+    <script>
+        var deletebtn = document.querySelector('#delete');
+
+        deletebtn.addEventListener('click', (element) => {
+            const endpoint = `/Record/${deletebtn.dataset.doc}`;
+
+            fetch(endpoint, {
+                method: 'DELETE'
+            }).then(resource => {
+                resource.json()
+            }).then(data => {
+                window.location.href = data.redirect;
+            })
+            .catch((error) => { console.log(error); })
+        })
+    </script>
+</body>
+</html>

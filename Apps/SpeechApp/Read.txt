@@ -1,0 +1,1 @@
+'Word to speech' functionality only functions on a server.
